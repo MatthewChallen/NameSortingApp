@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         String fileName = args[0];
+        String saveFileName;
         NameFileHandler handler;
         View consoleView = new ConsoleView();
 
@@ -17,15 +18,15 @@ public class Main {
             return;
         }
 
-        handler.sortNames();
+        consoleView.presentNames(handler.sortNames());
 
         try{
-            handler.saveFile();
+            saveFileName = handler.saveFile();
         } catch (IOException e) {
             consoleView.writeError();
             return;
         }
 
-        consoleView.success();
+        consoleView.success(saveFileName);
     }
 }
