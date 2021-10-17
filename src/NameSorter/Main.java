@@ -8,12 +8,12 @@ public class Main {
 
         String fileName = args[0];
         NameFileHandler handler;
-        View console = new ConsoleView();
+        View consoleView = new ConsoleView();
 
         try{
             handler = new NameFileHandler(fileName);
         } catch (IOException e) {
-            console.readError();
+            consoleView.readError();
             return;
         }
 
@@ -22,11 +22,10 @@ public class Main {
         try{
             handler.saveFile();
         } catch (IOException e) {
-            console.writeError();
+            consoleView.writeError();
             return;
         }
 
-        console.success();
-
+        consoleView.success();
     }
 }

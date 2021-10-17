@@ -4,10 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//Loads and holds relevant data
 public class NameFileHandler {
 
-    private String fileName;
-    private ArrayList<Name> names = new ArrayList<>();
+    private final String fileName;
+    private final ArrayList<Name> names = new ArrayList<>();
 
     public NameFileHandler(String fileName) throws IOException {
         if(!fileName.endsWith(".txt")){
@@ -42,8 +43,10 @@ public class NameFileHandler {
         //Append sorted to fileName
         String sortedFileName = fileName.replaceFirst(".txt", "-sorted.txt");
 
+        //open file
         BufferedWriter writer = new BufferedWriter(new FileWriter(sortedFileName));
 
+        //write to file, with a newline between each line
         boolean firstLine = true;
         for(Name name : names){
 
@@ -54,6 +57,7 @@ public class NameFileHandler {
             firstLine = false;
         }
 
+        //Close the stream
         writer.close();
     }
 }

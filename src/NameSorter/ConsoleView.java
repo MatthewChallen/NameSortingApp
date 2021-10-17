@@ -1,7 +1,6 @@
 package NameSorter;
 
-import java.io.IOException;
-
+//Handles user input/output
 public class ConsoleView implements View{
 
     public void readError(){
