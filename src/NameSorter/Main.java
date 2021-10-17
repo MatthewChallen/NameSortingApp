@@ -1,4 +1,4 @@
-package com.company;
+package NameSorter;
 
 public class Main {
 
