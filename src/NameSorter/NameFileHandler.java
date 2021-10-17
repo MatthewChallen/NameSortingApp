@@ -3,6 +3,8 @@ package NameSorter;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 //Loads and holds relevant data
 public class NameFileHandler {
@@ -34,11 +36,14 @@ public class NameFileHandler {
         reader.close();
     }
 
-    public void sortNames(){
+    public List<String> sortNames(){
         Collections.sort(this.names);
+
+        //Gets the string version of the names through a stream, rather than the name objects.
+        return this.names.stream().map(Name::getNameString).collect(Collectors.toList());
     }
 
-    public void saveFile() throws IOException {
+    public String saveFile() throws IOException {
 
         //Append sorted to fileName
         String sortedFileName = fileName.replaceFirst(".txt", "-sorted.txt");
@@ -60,5 +65,7 @@ public class NameFileHandler {
 
         //Close the stream
         writer.close();
+
+        return sortedFileName;
     }
 }
