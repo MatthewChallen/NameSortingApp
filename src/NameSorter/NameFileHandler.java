@@ -53,6 +53,7 @@ public class NameFileHandler {
             if(!firstLine){
                 writer.write('\n');
             }
+
             writer.write(name.getNameString());
             firstLine = false;
         }
